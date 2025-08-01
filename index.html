@@ -1,72 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PixelPet Arena</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PixelPet Arena | Train. Battle. Evolve.</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body {
+      background-color: #0d0d1a;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: 'Press Start 2P', cursive;
-      background: linear-gradient(to bottom right, #0d1b2a, #1b263b);
-      color: white;
+      padding: 0;
     }
-    nav {
-      background-color: #1b263b;
-      padding: 10px 0;
+
+    header {
       text-align: center;
-      border-bottom: 2px solid #e0e1dd;
+      padding: 30px 0;
+      background-color: #1a1a2e;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffcc00;
+      font-family: 'Press Start 2P', cursive;
     }
+
+    nav {
+      text-align: center;
+      background-color: #141427;
+      padding: 15px 0;
+    }
+
     nav a {
-      color: #ffd700;
-      text-decoration: none;
       margin: 0 20px;
-      font-size: 14px;
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
-    .container {
-      max-width: 960px;
-      margin: auto;
+
+    section {
       padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
-    h1, h2 {
-      color: #ffd700;
-    }
+
     button {
-      background-color: #ffd700;
-      border: none;
-      color: black;
-      font-weight: bold;
-      padding: 12px 24px;
-      font-size: 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin: 10px 0;
-    }
-    button:hover {
       background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 12px;
     }
-    ul li {
-      margin-bottom: 10px;
+
+    button:hover {
+      background-color: #e6b800;
     }
-    .team-member {
+
+    h2 {
+      color: #ffcc00;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 18px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    .team {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
       margin-top: 20px;
     }
+
+    .member {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .faq-item {
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: #141427;
+      border-left: 4px solid #ffcc00;
+      border-radius: 6px;
+    }
+
+    .faq-question {
+      color: #00ffff;
+      font-weight: bold;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .faq-answer {
+      color: #cccccc;
+      font-size: 14px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
     footer {
       text-align: center;
-      font-size: 12px;
       padding: 20px;
-      border-top: 1px solid #ccc;
+      background-color: #141427;
+      color: #888;
+      margin-top: 40px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+    }
+
+    #wallet-address {
+      color: #00ff99;
+      margin-top: 10px;
+      font-family: monospace;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.js"></script>
 </head>
 
 <body>
+  <header>Train. Battle. Evolve.</header>
+
   <nav>
     <a href="#staking">Staking</a>
     <a href="#utility">Utility</a>
@@ -75,83 +138,100 @@
     <a href="#faq">FAQ</a>
   </nav>
 
-  <div class="container">
-    <h1>Welcome to PixelPet Arena</h1>
-    <p>Adopt a pixel pet, stake it to earn XP, and prepare it for battle in the arena. Powered by <strong>Solana</strong>.</p>
-    <button>Mint Your Pet</button>
+  <section>
+    <h2>Welcome to PixelPet Arena</h2>
+    <p>Adopt a pixel pet, stake it to earn XP, and prepare it for battle in the arena. <strong>Powered by Solana.</strong></p>
+    <button onclick="connectWallet()">Mint Your Pet</button>
+    <div id="wallet-address"></div>
+  </section>
 
-    <h2 id="staking">Staking</h2>
-    <p>Stake your pet NFT to earn daily XP rewards. XP is used to evolve your pet and unlock exclusive in-game abilities. The longer you stake, the more powerful your pet becomes.</p>
-    <button onclick="connectWallet()" id="connectButton">Connect Wallet</button>
-    <p id="walletAddress" style="color: lightgreen;"></p>
+  <section id="staking">
+    <h2>Staking</h2>
+    <p>Stake your pet NFT to earn daily XP rewards. Use XP to evolve your pet and unlock future utilities.</p>
+    <button onclick="connectWallet()">Connect Wallet</button>
+  </section>
 
-    <h2 id="utility">Token Utility</h2>
+  <section id="utility">
+    <h2>Token Utility</h2>
     <ul>
-      <li>🔹 Use XP tokens to evolve your pet into stronger forms</li>
-      <li>🔹 Unlock new in-game features and limited battle arenas</li>
-      <li>🔹 Participate in seasonal competitions and win prizes</li>
-      <li>🔹 Upgrade pet skills and customize appearance</li>
+      <li>Use XP tokens to evolve your pet into stronger forms</li>
+      <li>Unlock new in-game features and limited battle arenas</li>
+      <li>Participate in seasonal competitions and win prizes</li>
+      <li>Upgrade pet skills and customize appearance</li>
     </ul>
+  </section>
 
-    <h2 id="roadmap">Roadmap</h2>
+  <section id="roadmap">
+    <h2>Roadmap</h2>
     <ul>
       <li>✅ NFT Mint Launch</li>
       <li>✅ NFT Staking System Live</li>
       <li>✅ XP Token Live</li>
       <li>✅ Pet Evolution System (Q4 2025)</li>
-      <li>🛠️ Leaderboard + Arena Battles (Coming Soon)</li>
+      <li>🚧 Leaderboard + Arena Battles <i>(Coming Soon)</i></li>
     </ul>
+  </section>
 
-    <h2 id="team">Team</h2>
-    <div class="team-member">
-      <p>@PixelFounder - Lead Dev</p>
-      <p>@PixelArtist - Design & Art</p>
-      <p>@PixelMod - Community Manager</p>
+  <section id="team">
+    <h2>Team</h2>
+    <div class="team">
+      <div class="member">
+        <p><strong>@PixelFounder</strong></p>
+        <p>Lead Developer</p>
+      </div>
+      <div class="member">
+        <p><strong>@PixelArtist</strong></p>
+        <p>Design & Art</p>
+      </div>
+      <div class="member">
+        <p><strong>@PixelMod</strong></p>
+        <p>Community Manager</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">What is PixelPet Arena?</div>
+      <div class="faq-answer">PixelPet Arena is a Web3-based NFT game where players mint, stake, and evolve pixel pets for battle and rewards.</div>
     </div>
 
-    <h2 id="faq">FAQ</h2>
-    <ul>
-      <li><strong>What is PixelPet Arena?</strong><br>A Web3 game where you collect, stake, and battle pixel pets on the Solana blockchain.</li>
-      <li><strong>How do I get started?</strong><br>Click “Mint Your Pet,” connect your wallet, and start staking your NFT pet to earn XP.</li>
-      <li><strong>What do I need to play?</strong><br>A Phantom wallet and a little SOL for gas fees.</li>
-      <li><strong>How do I evolve my pet?</strong><br>Earn XP by staking, then spend XP to evolve your pet through the dashboard.</li>
-      <li><strong>Is this game free to play?</strong><br>Yes, except for the initial minting and transaction fees on Solana.</li>
-    </ul>
-  </div>
+    <div class="faq-item">
+      <div class="faq-question">How do I earn XP?</div>
+      <div class="faq-answer">You earn XP by staking your NFT pets daily. XP is used to evolve pets and unlock exclusive game utilities.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What wallet should I use?</div>
+      <div class="faq-answer">Use the Phantom wallet on Solana to connect and interact with PixelPet Arena securely.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is it free to play?</div>
+      <div class="faq-answer">You can explore the site for free. Minting and staking will require Solana in your wallet.</div>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 PixelPet Arena. Built on Solana.
+    &copy; 2025 PixelPet Arena. Built on Solana Blockchain.
   </footer>
 
   <script>
-    const connectWallet = async () => {
-      try {
-        if ("solana" in window) {
-          const provider = window.solana;
-          if (provider.isPhantom) {
-            const resp = await provider.connect();
-            const walletAddress = resp.publicKey.toString();
-            document.getElementById("walletAddress").innerText = "Connected: " + walletAddress;
-          }
-        } else {
-          alert("Phantom wallet not found. Please install it.");
-        }
-      } catch (err) {
-        console.error("Connection failed", err);
-      }
-    };
-
-    window.addEventListener('load', async () => {
+    async function connectWallet() {
       if (window.solana && window.solana.isPhantom) {
-        const provider = window.solana;
         try {
-          await provider.connect({ onlyIfTrusted: true });
-          const walletAddress = provider.publicKey.toString();
-          document.getElementById("walletAddress").innerText = "Connected: " + walletAddress;
-        } catch {}
+          const resp = await window.solana.connect();
+          const walletAddress = resp.publicKey.toString();
+          document.getElementById("wallet-address").innerText = "Wallet Connected: " + walletAddress;
+        } catch (err) {
+          console.error("User rejected connection", err);
+        }
+      } else {
+        alert("Phantom Wallet not found! Please install it from https://phantom.app/");
       }
-    });
+    }
   </script>
 </body>
-
 </html>
