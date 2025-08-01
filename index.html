@@ -2,79 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PixelPet Arena | Train. Battle. Evolve.</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0a0f29, #1c2045);
+      background: #0e1a2b;
       color: #fff;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
+
     header {
-      background: #0f1537;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: #0b1321;
+      padding: 20px 0;
+      text-align: center;
     }
-    header nav a {
-      color: gold;
-      margin: 0 1rem;
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      color: #ffd700;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #ffd700;
       text-decoration: none;
       font-weight: bold;
     }
-    header nav a:hover {
-      text-decoration: underline;
-    }
+
     section {
-      padding: 2rem;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    h1, h2 {
-      color: #ffd700;
+
+    h2 {
+      color: #ffffff;
+      margin-bottom: 10px;
     }
-    button {
-      background: #ffd700;
-      border: none;
+
+    .button {
+      background-color: #ffcc00;
+      color: #000;
       padding: 10px 20px;
       font-weight: bold;
-      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 5px;
+      margin: 10px 0;
     }
-    .roadmap ul, .utility ul {
-      list-style: none;
-      padding: 0;
+
+    .list {
+      margin-left: 20px;
     }
-    .roadmap li::before, .utility li::before {
-      content: '✅';
-      margin-right: 0.5rem;
-      color: lime;
-    }
-    .team {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 2rem;
-    }
-    .team-member {
+
+    footer {
       text-align: center;
-    }
-    .team-member img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 2px solid gold;
-      margin-bottom: 0.5rem;
+      padding: 20px;
+      color: #aaa;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h2>Train. Battle. Evolve.</h2>
+    <h1>PixelPet Arena</h1>
+    <div>Train. Battle. Evolve.</div>
     <nav>
       <a href="#staking">Staking</a>
       <a href="#utility">Utility</a>
@@ -83,64 +83,59 @@
     </nav>
   </header>
 
-  <section id="home">
-    <h1>Welcome to PixelPet Arena</h1>
-    <p>Adopt a pixel pet, stake it to earn XP, and evolve it to compete in the arena. Powered by <strong>Solana</strong>.</p>
-    <button onclick="alert('Minting coming soon!')">Mint Your Pet</button>
+  <section>
+    <h2>Welcome to PixelPet Arena</h2>
+    <p>Adopt a pixel pet, stake it to earn XP, and prepare it for epic battles in the arena. This NFT-powered experience is built on the Solana blockchain, designed for collectors, gamers, and Web3 adventurers alike.</p>
+    <button class="button">Mint Your Pet</button>
   </section>
 
   <section id="staking">
     <h2>Staking</h2>
-    <p>Stake your PixelPet NFT and earn daily XP rewards. The longer you stake, the more powerful your pet becomes. XP can be used to evolve pets, unlock new arenas, and access rare customizations.</p>
-    <button onclick="alert('Connect Wallet feature will be added soon.')">Connect Wallet</button>
+    <p>Staking your NFT gives it purpose and growth. Lock your pet into the staking pool and earn XP rewards daily. XP is used to level up your pet, evolve it into stronger forms, and unlock exclusive content and bonuses.</p>
+    <ul class="list">
+      <li>Earn XP every day your pet is staked</li>
+      <li>XP can be used to evolve and enhance your pet</li>
+      <li>Unstake anytime and claim rewards</li>
+    </ul>
+    <button class="button">Connect Wallet</button>
   </section>
 
-  <section id="utility" class="utility">
+  <section id="utility">
     <h2>Token Utility</h2>
-    <ul>
-      <li>Use XP tokens to evolve your pet into stronger forms</li>
-      <li>Unlock new in-game features and battle arenas</li>
-      <li>Participate in tournaments & win prizes</li>
-      <li>Customize your pet’s appearance & powers</li>
+    <p>XP tokens are more than just numbers. They power the entire PixelPet universe. Here's what you can do with them:</p>
+    <ul class="list">
+      <li>🎯 Evolve your pet into powerful and rare versions</li>
+      <li>🗺️ Unlock new regions, challenges, and limited arenas</li>
+      <li>🏆 Join tournaments and win exclusive NFTs or XP</li>
+      <li>🎨 Customize your pet's appearance and skills</li>
     </ul>
   </section>
 
-  <section id="roadmap" class="roadmap">
+  <section id="roadmap">
     <h2>Roadmap</h2>
-    <ul>
-      <li>NFT Mint Launch</li>
-      <li>NFT Staking System Live</li>
-      <li>XP Token Integration</li>
-      <li>Pet Evolution System (Q4 2025)</li>
-      <li>Leaderboard + Arena Battles (Coming Soon)</li>
+    <p>We’re building PixelPet Arena step-by-step with transparency and community feedback:</p>
+    <ul class="list">
+      <li>✅ NFT Mint Launch — Complete</li>
+      <li>✅ Staking System — Live and running</li>
+      <li>✅ XP Token Utility — Available</li>
+      <li>🔄 Pet Evolution System — Coming Q4 2025</li>
+      <li>🔜 Leaderboards + Arena Battles — Launching soon</li>
     </ul>
   </section>
 
-  <section id="team" class="team">
-    <div class="team-member">
-      <img src="https://via.placeholder.com/100" alt="Founder" />
-      <p><strong>@PixelFounder</strong><br />Lead Developer</p>
-    </div>
-    <div class="team-member">
-      <img src="https://via.placeholder.com/100" alt="Artist" />
-      <p><strong>@PixelArtist</strong><br />Design & Art</p>
-    </div>
-    <div class="team-member">
-      <img src="https://via.placeholder.com/100" alt="Community Manager" />
-      <p><strong>@PixelMod</strong><br />Community Manager</p>
-    </div>
+  <section id="team">
+    <h2>Team</h2>
+    <p>We're a team of gamers, artists, and devs building the future of blockchain gaming.</p>
+    <ul class="list">
+      <li><strong>@PixelFounder</strong> — Lead Dev & Project Architect</li>
+      <li><strong>@PixelArtist</strong> — Design & Pixel Art</li>
+      <li><strong>@PixelMod</strong> — Community Manager</li>
+    </ul>
   </section>
 
-  <script>
-    // Smooth scroll
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+  <footer>
+    © 2025 PixelPet Arena. Powered by Solana Blockchain.
+  </footer>
+
 </body>
 </html>
